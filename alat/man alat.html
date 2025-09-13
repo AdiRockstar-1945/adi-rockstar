@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Manajemen Alat & Reagen</title>
+  <link rel="stylesheet" href="alat-reagen.css">
+</head>
+<body>
+
+    <div class="nav">
+    <button class="btn-sidebar" onclick="openSide()">
+      <img src="logo-removebg-preview.png" alt="" class="logo">
+    </button>
+    <h1>...</h1>
+  </div>
+
+  <div class="section">
+    <div class="sidebar" id="sidebar">
+    <h2>Lab Navigator</h2>
+    <div class="menu-item active"><i class="fas fa-home"></i><a href="../dasbor/beranda.html">Dashboard</a></div>
+    <div class="menu-item"><i class="fas fa-user-injured"></i><a href="../input/input.html"> Pasien & Permintaan</a></div>
+    <div class="menu-item"><i class="fas fa-vial"></i><a href="../manajemen sampel/sampel.html"> Manajemen Sampel</a></div>
+    <div class="menu-item"><i class="fas fa-microscope"></i><a href="../hasil/hasil.html">Pemeriksaan & Hasil</a></div>
+    <div class="menu-item"><i class="fas fa-file-alt"></i><a href="../laporan/laporan.html">Pelaporan</a></div>
+    <div class="menu-item"><i class="fas fa-flask"></i><a href="../alat/man alat.html">Alat & Reagen</a></div>
+    <div class="menu-item"><i class="fas fa-cogs"></i><a href="../pengaturan/setting.html">Pengaturan</a></div>
+  </div>
+
+  <div class="container">
+    <h2>Manajemen Alat & Reagen</h2>
+    
+    <section class="alat">
+      <h3>Daftar Alat Laboratorium</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Alat</th>
+            <th>Jenis</th>
+            <th>Jadwal Kalibrasi</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Autoanalyzer AU480</td>
+            <td>Klinik Kimia</td>
+            <td>05 Sept 2025</td>
+            <td>✅ Baik</td>
+          </tr>
+          <tr>
+            <td>Centrifuge 1200RPM</td>
+            <td>Praklinik</td>
+            <td>15 Agustus 2025</td>
+            <td style="color: orange;">⚠ Maintenance Terjadwal</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="reagen">
+      <h3>Stok Reagen</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Nama Reagen</th>
+            <th>Jumlah</th>
+            <th>Kadaluarsa</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SGOT IFCC Kit</td>
+            <td>5 botol</td>
+            <td>20 Okt 2025</td>
+            <td>✅ Aman</td>
+          </tr>
+          <tr class="warning">
+            <td>HbA1c Cartridge</td>
+            <td>1 botol</td>
+            <td>15 Agustus 2025</td>
+            <td>⚠ Stok Rendah</td>
+          </tr>
+          <tr class="expired">
+            <td>Buffer Glukosa</td>
+            <td>0</td>
+            <td>20 Juli 2025</td>
+            <td>❌ Kadaluarsa</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="log">
+      <h3>Log Pemakaian Reagen</h3>
+      <ul>
+        <li>03/08/2025 - HbA1c digunakan 1x oleh Analis Dwi</li>
+        <li>02/08/2025 - SGOT digunakan 3x oleh Analis Anggun</li>
+      </ul>
+    </section>
+  </div>
+  </div>
+</body>
+
+<script>
+
+  const sidebar = document.getElementById("sidebar");
+  let isBtnClick = false;
+  function openSide(){
+    isBtnClick = !isBtnClick;
+    isBtnClick? sidebar.style.marginLeft = 0+"px" : sidebar.style.marginLeft = -260+"px";
+  }
+</script>
+</html>

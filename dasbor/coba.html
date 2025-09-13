@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SILABU - Beranda</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar" id="sidebar">
+        <div class="logo">
+          <img src="logo-silabu.png" alt="SILABU Logo" />
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="active">
+              <a href="#"><i class="fas fa-home"></i> Beranda</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-user-friends"></i> Data Pasien dan
+                Permintaan</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-vial"></i> Manajemen Sampel</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-microscope"></i> Pemeriksaan dan Hasil</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-clipboard-list"></i> Pelaporan</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-toolbox"></i> Alat dan Reagen</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-history"></i> Riwayat Pasien</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          <a href="#"><i class="fas fa-question-circle"></i> Bantuan</a>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <header class="header">
+          <div style="display: flex">
+            <button class="hamburger" onclick="openSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="logo2">
+              <img src="logo2.png" alt="" />
+            </div>
+          </div>
+
+          <div class="profile-info">
+            <div class="icon-profil">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                <path
+                  d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"
+                />
+              </svg>
+            </div>
+            <div class="user-details">
+              <p class="username">Adi Nugraha</p>
+            </div>
+          </div>
+        </header>
+
+        <main class="main" onclick="closeSidebar()">
+          <div class="welcome-section">
+            <h1>Selamat Datang!</h1>
+            <p>Sistem Informasi Laboratorium Terpadu</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-title">Total Pasien</span>
+              <span class="stat-number">150</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-title">Pasien diperiksa</span>
+              <span class="stat-number">70</span>
+            </div>
+            <div class="calendar-card">
+              <div class="calendar-header">
+                <span class="month" id="mont-name">Agustus</span>
+                <span class="year" id="year-number">2025</span>
+              </div>
+              <span class="calender-bg-head"></span>
+              <div class="calendar-body">
+                <table id="kalender">
+                  <thead>
+                    <tr>
+                      <th>SUN</th>
+                      <th>MON</th>
+                      <th>TUE</th>
+                      <th>WED</th>
+                      <th>THU</th>
+                      <th>FRI</th>
+                      <th>SAT</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-section">
+            <h2>Aktivitas Hari Ini</h2>
+            <ul>
+              <li>
+                <i class="fas fa-circle activity-bullet"></i> 08:00 - Sampel
+                darah pasien A diterima
+              </li>
+              <li>
+                <i class="fas fa-circle activity-bullet"></i> 08:30 -
+                Pemeriksaan HbA1c dimulai
+              </li>
+              <li>
+                <i class="fas fa-circle activity-bullet"></i> 09:10 - Kepala lab
+                validasi hasil glukosa
+              </li>
+              <li>
+                <i class="fas fa-circle activity-bullet"></i> 10:05 - Sistem
+                mengirim laporan ke EMR
+              </li>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const monthName = document.getElementById("mont-name");
+  const yearNumber = document.getElementById("year-number");
+  const today = new Date();
+
+  const bulan = today.getMonth();
+  const namaBulan = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
+  ];
+
+  const tahun = today.getFullYear();
+  const date = today.getDate();
+
+  monthName.textContent = namaBulan[bulan];
+  yearNumber.textContent = tahun;
+
+  const tbody = document.createElement("tbody");
+
+  const totalHari = 31;
+  const hariMulai = 4; // 0=Senin, 4=Jumat
+  const kolomPerMinggu = 7;
+  let tanggal = 1;
+
+  while (tanggal <= totalHari) {
+    const tr = document.createElement("tr");
+
+    for (let i = 0; i < kolomPerMinggu; i++) {
+      const td = document.createElement("td");
+
+      // Baris pertama: isi kosong sampai hariMulai
+      if (tbody.children.length === 0 && i < hariMulai) {
+        td.setAttribute("colspan", hariMulai); // Gabungkan kolom kosong
+        tr.appendChild(td);
+        i = hariMulai - 1; // Skip ke hariMulai
+        continue;
+      }
+
+      if (tanggal <= totalHari) {
+        td.textContent = tanggal;
+
+        // Tambahkan class untuk tanggal tertentu
+        if (tanggal === date) {
+          td.classList.add("active-day");
+        }
+
+        tr.appendChild(td);
+        tanggal++;
+      } else {
+        // Kosongkan sel jika sudah lewat dari total hari
+        tr.appendChild(td);
+      }
+    }
+
+    tbody.appendChild(tr);
+  }
+
+  // Tambahkan ke tabel (pastikan ada elemen <table id="kalender"> di HTML)
+  document.getElementById("kalender").appendChild(tbody);
+
+  const sidebar = document.getElementById("sidebar");
+
+  let isSideOpen = false;
+  function openSidebar() {
+    isSideOpen = true;
+    sidebar.style.left = 0 + "px";
+    console.log("tes");
+  }
+
+  function closeSidebar() {
+    if (isSideOpen) sidebar.style.left = -300 + "px";
+  }
+</script>

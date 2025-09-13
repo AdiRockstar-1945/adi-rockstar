@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Hasil Pemeriksaan</title>
+  <link rel="stylesheet" href="laporan.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+     <div class="nav">
+    <button class="btn-sidebar" onclick="openSide()">
+      <img src="logo-removebg-preview.png" alt="" class="logo">
+    </button>
+    <h1>...</h1>
+  </div>
+
+  <div class="section">
+    <div class="sidebar" id="sidebar">
+    <h2>Lab Navigator</h2>
+    <div class="menu-item active"><i class="fas fa-home"></i><a href="../dasbor/beranda.html">Dashboard</a></div>
+    <div class="menu-item"><i class="fas fa-user-injured"></i><a href="../input/input.html"> Pasien & Permintaan</a></div>
+    <div class="menu-item"><i class="fas fa-vial"></i><a href="../manajemen sampel/sampel.html"> Manajemen Sampel</a></div>
+    <div class="menu-item"><i class="fas fa-microscope"></i><a href="../hasil/hasil.html">Pemeriksaan & Hasil</a></div>
+    <div class="menu-item"><i class="fas fa-file-alt"></i><a href="../laporan/laporan.html">Pelaporan</a></div>
+    <div class="menu-item"><i class="fas fa-flask"></i><a href="../alat/man alat.html">Alat & Reagen</a></div>
+    <div class="menu-item"><i class="fas fa-cogs"></i><a href="../pengaturan/setting.html">Pengaturan</a></div>
+  </div>
+
+    <div class="container" id="laporan">
+    <header>
+      <h2>Laporan Hasil Pemeriksaan</h2>
+      <p>Laboratorium Klinik Sehat</p>
+    </header>
+
+    <section class="info-pasien">
+      <p><strong>Nama:</strong> Andi Nugraha</p>
+      <p><strong>Umur:</strong> 45 tahun</p>
+      <p><strong>Dokter Pengirim:</strong> dr. Surya</p>
+      <p><strong>Tanggal:</strong> 03 Agustus 2025</p>
+    </section>
+
+    <section class="hasil">
+      <table>
+        <thead>
+          <tr>
+            <th>Jenis Pemeriksaan</th>
+            <th>Nilai Aktual</th>
+            <th>Nilai Normal</th>
+            <th>Interpretasi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Glukosa</td>
+            <td>220 mg/dL</td>
+            <td>70 - 110 mg/dL</td>
+            <td style="color: red;">Tinggi</td>
+          </tr>
+          <tr>
+            <td>HbA1c</td>
+            <td>8.2%</td>
+            <td>4.0 - 6.0%</td>
+            <td style="color: red;">Di atas batas normal</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="ttd">
+      <div class="ttd-block">
+        <p>Dokter Pengirim</p>
+        <span class="badge-ttd">dr. R. Suryadi</span>
+      </div>
+      <div class="ttd-block">
+        <p>Kepala Laboratorium</p>
+        <span class="badge-ttd">dr. Surya, Sp.PD</span>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <div class="action-buttons">
+    <button onclick="printPDF()">Cetak PDF</button>
+    <button onclick="alert('Terkirim ke Email!')">Kirim Email</button>
+    <button onclick="alert('Terkirim ke WhatsApp!')">Kirim WhatsApp</button>
+    <button onclick="alert('Tersimpan ke EMR!')">Kirim ke EMR</button>
+  </div>
+
+  <script>
+    async function printPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const laporan = document.getElementById('laporan').innerText;
+      doc.text(laporan, 10, 10);
+      doc.save("laporan-hasil.pdf");
+    }
+
+     const sidebar = document.getElementById("sidebar");
+  let isBtnClick = false;
+  function openSide(){
+    isBtnClick = !isBtnClick;
+    isBtnClick? sidebar.style.marginLeft = 0+"px" : sidebar.style.marginLeft = -260+"px";
+  }
+  </script>
+</body>
+</html>

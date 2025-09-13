@@ -1,0 +1,92 @@
+:root {
+  --arctic-blue: #A7C5EB;
+  --steel-navy: #1D3557;
+  --mint-grey: #EDF6F9;
+  --pink-ice: #FFDDD2;
+  --white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: var(--arctic-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: var(--mint-grey);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  color: var(--steel-navy);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--steel-navy);
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border: 1px solid var(--steel-navy);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--steel-navy);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--pink-ice);
+  color: var(--steel-navy);
+}
+
+.reset-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.reset-link a {
+  color: var(--steel-navy);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.reset-link a:hover {
+  text-decoration: underline;
+}
+
+.role{
+  width: 100%;
+  margin-bottom: 10px;
+}

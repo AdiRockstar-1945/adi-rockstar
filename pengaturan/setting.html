@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin & Setting</title>
+  <link rel="stylesheet" href="admin-setting.css">
+</head>
+<body>
+
+     <div class="nav">
+    <button class="btn-sidebar" onclick="openSide()">
+      <img src="logo-removebg-preview.png" alt="" class="logo">
+    </button>
+    <h1>...</h1>
+  </div>
+
+  <div class="section">
+     <div class="sidebar" id="sidebar">
+    <h2>Lab Navigator</h2>
+    <div class="menu-item active"><i class="fas fa-home"></i><a href="../dasbor/beranda.html">Dashboard</a></div>
+    <div class="menu-item"><i class="fas fa-user-injured"></i><a href="../input/input.html"> Pasien & Permintaan</a></div>
+    <div class="menu-item"><i class="fas fa-vial"></i><a href="../manajemen sampel/sampel.html"> Manajemen Sampel</a></div>
+    <div class="menu-item"><i class="fas fa-microscope"></i><a href="../hasil/hasil.html">Pemeriksaan & Hasil</a></div>
+    <div class="menu-item"><i class="fas fa-file-alt"></i><a href="../laporan/laporan.html">Pelaporan</a></div>
+    <div class="menu-item"><i class="fas fa-flask"></i><a href="../alat/man alat.html">Alat & Reagen</a></div>
+    <div class="menu-item"><i class="fas fa-cogs"></i><a href="../pengaturan/setting.html">Pengaturan</a></div>
+  </div>
+
+   <div class="container">
+    <h2>Halaman Admin & Pengaturan</h2>
+
+    <!-- Manajemen User -->
+    <section class="section">
+      <h3>Manajemen User & Role</h3>
+      <form>
+        <label>Username</label>
+        <input type="text" placeholder="Masukkan username">
+        <label>Role</label>
+        <select>
+          <option>Admin</option>
+          <option>Analis</option>
+          <option>Dokter</option>
+          <option>Supervisor</option>
+        </select>
+        <button type="submit">Tambah User</button>
+      </form>
+    </section>
+
+    <!-- Audit Trail -->
+    <section class="section">
+      <h3>Audit Trail</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Waktu</th>
+            <th>User</th>
+            <th>Aktivitas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>03/08/2025 08:01</td>
+            <td>admin1</td>
+            <td>Login & Update Setting EMR</td>
+          </tr>
+          <tr>
+            <td>03/08/2025 09:30</td>
+            <td>dwi.analis</td>
+            <td>Verifikasi hasil SGPT</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Template & Backup -->
+    <section class="section">
+      <h3>Pengaturan Template & Database</h3>
+      <form>
+        <label>Template Laporan (Header)</label>
+        <input type="text" placeholder="Klinik ABC - Lab Center">
+        <label>Backup Database</label>
+        <button type="button">Download Backup</button>
+        <label>Restore Database</label>
+        <input type="file">
+      </form>
+    </section>
+
+    <!-- API Setting -->
+    <section class="section">
+      <h3>API Setting (Alat & EMR)</h3>
+      <form>
+        <label>Endpoint EMR</label>
+        <input type="text" placeholder="https://emr.labklinik.com/api">
+        <label>API Key</label>
+        <input type="text" placeholder="************">
+        <button type="submit">Simpan Setting</button>
+      </form>
+    </section>
+
+  </div>
+  </div>
+</body>
+
+<script>
+
+  const sidebar = document.getElementById("sidebar");
+  let isBtnClick = false;
+  function openSide(){
+    isBtnClick = !isBtnClick;
+    isBtnClick? sidebar.style.marginLeft = 0+"px" : sidebar.style.marginLeft = -260+"px";
+  }
+</script>
+</html>

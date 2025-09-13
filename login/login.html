@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Sistem Informasi Lab</title>
+  <link rel="stylesheet" href="login.css" />
+  <link src="https://i.pinimg.com/1200x/91/59/4f/91594f34fe49da8888a0f69f0a8dd5b2.jpg">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login Pengguna</h2>
+    <form action="dasboard.html" method="post" onsubmit="return redirectByRole()">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="role">Login Sebagai</label>
+      <select name="" id="role" class="role">
+        <option value="">analis</option>
+        <option value="">admin</option>
+        <option value="">dokter</option>
+        <option value="">supervisor</option>
+      </select>
+
+      <button type="submit" onclick="login()">Login</button>
+
+      <p class="reset-link">
+        <a href="#">Lupa password?</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    // Simulasi redirect berdasarkan role (sementara)
+    function redirectByRole() {
+      const username = document.getElementById("username").value.toLowerCase();
+
+      if (username.includes("admin")) {
+        window.location.href = "admin-dashboard.html";
+      } else if (username.includes("analis")) {
+        window.location.href = "analis-dashboard.html";
+      } else if (username.includes("dokter")) {
+        window.location.href = "dokter-dashboard.html";
+      } else if (username.includes("supervisor")) {
+        window.location.href = "supervisor-dashboard.html";
+      } else {
+        alert("Role tidak dikenali.");
+      }
+
+      return false; // prevent form from submitting
+    }
+    function login(){
+      window.location.href="../navigasi/navumum.html"
+    }
+  </script>
+</body>
+</html>

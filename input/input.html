@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Input Pasien & Permintaan</title>
+  <link rel="stylesheet" href="input-style.css" />
+</head>
+<body>
+
+  <div class="nav">
+    <button class="btn-sidebar" onclick="openSide()">
+      <img src="logo-removebg-preview.png" alt="" class="logo">
+    </button>
+    <h1>...</h1>
+  </div>
+
+  <div class="section">
+    <div class="sidebar" id="sidebar">
+    <h2>Lab Navigator</h2>
+    <div class="menu-item active"><i class="fas fa-home"></i><a href="../dasbor/beranda.html">Dashboard</a></div>
+    <div class="menu-item"><i class="fas fa-user-injured"></i><a href="../input/input.html"> Pasien & Permintaan</a></div>
+    <div class="menu-item"><i class="fas fa-vial"></i><a href="../manajemen sampel/sampel.html"> Manajemen Sampel</a></div>
+    <div class="menu-item"><i class="fas fa-microscope"></i><a href="../hasil/hasil.html">Pemeriksaan & Hasil</a></div>
+    <div class="menu-item"><i class="fas fa-file-alt"></i><a href="../laporan/laporan.html">Pelaporan</a></div>
+    <div class="menu-item"><i class="fas fa-flask"></i><a href="../alat/man alat.html">Alat & Reagen</a></div>
+    <div class="menu-item"><i class="fas fa-cogs"></i><a href="../pengaturan/setting.html">Pengaturan</a></div>
+  </div>
+
+   <div class="container">
+    <h1>Input Pasien & Permintaan</h1>
+
+    <form id="formPasien">
+      <!-- Input Manual / EMR -->
+      <fieldset>
+        <legend>Sumber Data Pasien</legend>
+        <label>
+          <input type="radio" name="dataSource" value="manual" checked>
+          Input Manual
+        </label>
+        <label>
+          <input type="radio" name="dataSource" value="emr">
+          Tarik dari EMR
+        </label>
+      </fieldset>
+
+      <!-- Data Pasien -->
+      <fieldset>
+        <legend>Data Pasien</legend>
+        <div class="form-row">
+          <label>Nama Pasien</label>
+          <input type="text" name="nama" required>
+        </div>
+        <div class="form-row">
+          <label>Usia</label>
+          <input type="number" id="usia" name="usia" required>
+        </div>
+        <div class="form-row">
+          <label>Jenis Kelamin</label>
+          <select id="gender" name="gender" required>
+            <option value="">-- Pilih --</option>
+            <option value="L">Laki-laki</option>
+            <option value="P">Perempuan</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Dokter Pengirim</label>
+          <input type="text" name="dokter" required>
+        </div>
+      </fieldset>
+
+      <!-- Pemeriksaan -->
+      <fieldset>
+        <legend>Permintaan Pemeriksaan</legend>
+
+        <div class="form-row">
+          <label for="jenisTes">Jenis Tes</label>
+          <select id="jenisTes" name="jenisTes" onchange="updateReferensi()">
+            <option value="">-- Pilih Tes --</option>
+            <option value="glukosa">Glukosa</option>
+            <option value="hba1c">HbA1c</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="panelUji">Panel Uji</label>
+          <select id="panelUji" name="panelUji">
+            <option value="">-- Pilih Panel --</option>
+            <option value="hematologi">Hematologi Rutin</option>
+            <option value="infeksi">Panel Infeksi</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Nilai Referensi</label>
+          <input type="text" id="nilaiReferensi" readonly>
+        </div>
+      </fieldset>
+
+      <button type="submit">Simpan Permintaan</button>
+    </form>
+  </div>
+  </div>
+
+  <script>
+    function updateReferensi() {
+      const usia = parseInt(document.getElementById('usia').value);
+      const gender = document.getElementById('gender').value;
+      const jenisTes = document.getElementById('jenisTes').value;
+
+      let referensi = '';
+
+      if (jenisTes === 'glukosa') {
+        referensi = (usia >= 18) ? '70-110 mg/dL' : '60-100 mg/dL';
+      } else if (jenisTes === 'hba1c') {
+        referensi = (gender === 'P') ? '<5.6%' : '<6.0%';
+      }
+
+      document.getElementById('nilaiReferensi').value = referensi || '-';
+    }
+
+      const sidebar = document.getElementById("sidebar");
+  let isBtnClick = false;
+  function openSide(){
+    isBtnClick = !isBtnClick;
+    isBtnClick? sidebar.style.marginLeft = 0+"px" : sidebar.style.marginLeft = -260+"px";
+  }
+  </script>
+</body>
+</html>
