@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Sampel Laboratorium</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Manajemen Sampel</h1>
+        <p>Tujuan: Melacak status setiap sampel</p>
+      </div>
+
+      <form id="sample-form">
+        <div class="section-grid">
+          <div class="form-section">
+            <h2>Fitur</h2>
+            <div class="form-group">
+              <label for="sample_id">ID Sampel:</label>
+              <input type="text" id="sample_id" name="sample_id" />
+            </div>
+            <div class="form-group">
+              <label for="patient_id">ID Pasien:</label>
+              <input type="text" id="patient_id" name="patient_id" />
+            </div>
+            <div class="form-group">
+              <label for="sample_type">Jenis Sampel:</label>
+              <select id="sample_type" name="sample_type">
+                <option value="">Pilih...</option>
+                <option value="darah">Darah</option>
+                <option value="urin">Urin</option>
+                <option value="sputum">Sputum</option>
+                <option value="faeces">Faeces</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Status Sampel:</label>
+              <div class="radio-group">
+                <label
+                  ><input type="radio" name="sample_status" value="diterima" />
+                  Diterima</label
+                >
+                <label
+                  ><input type="radio" name="sample_status" value="diproses" />
+                  Diproses</label
+                >
+                <label
+                  ><input type="radio" name="sample_status" value="selesai" />
+                  Selesai</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section detail-section">
+            <h2>Detail</h2>
+            <div class="form-group">
+              <label for="sample_condition">Kondisi Sampel:</label>
+              <textarea
+                id="sample_condition"
+                name="sample_condition"
+                rows="4"
+                placeholder="Contoh: Hemolisis, volume cukup, warna normal..."
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Notifikasi Sampel:</label>
+              <div class="checkbox-group">
+                <label
+                  ><input
+                    type="checkbox"
+                    name="notification_status"
+                    value="rusak"
+                  />
+                  Rusak</label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="notification_status"
+                    value="tidak_cukup"
+                  />
+                  Tidak Cukup</label
+                >
+                <label
+                  ><input
+                    type="checkbox"
+                    name="notification_status"
+                    value="kadaluarsa"
+                  />
+                  Kadaluarsa</label
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="validator"
+                >Validasi penerimaan sampel oleh ATLM:</label
+              >
+              <input
+                type="text"
+                id="validator"
+                name="validator"
+                placeholder="Nama ATLM"
+              />
+            </div>
+            <div class="form-group">
+              <label for="storage">Penyimpanan sampel:</label>
+              <textarea
+                id="storage"
+                name="storage"
+                rows="2"
+                placeholder="Tanggal & jam, lokasi penyimpanan"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="reminder">Reminder: Sampel belum diproses dalam 2 jam</div>
+
+        <div class="submit-button">
+          <button type="submit">Simpan Data Sampel</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("sample-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const formData = new FormData(event.target);
+          const data = Object.fromEntries(formData.entries());
+
+          const notifications = Array.from(
+            document.querySelectorAll(
+              'input[name="notification_status"]:checked'
+            )
+          ).map((cb) => cb.value);
+          data.notifications = notifications;
+
+          console.log("Data Sampel:", data);
+          alert(
+            "Data sampel berhasil disimpan. Cek konsol browser untuk melihat detailnya."
+          );
+        });
+    </script>
+  </body>
+</html>

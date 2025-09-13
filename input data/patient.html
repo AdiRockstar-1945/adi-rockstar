@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Data Pasien</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="sidebar" id="sidebar">
+        <div class="logo">
+          <img src="logo-silabu.png" alt="SILABU Logo" />
+        </div>
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="active">
+              <i class="fas fa-home"></i>
+              <a href="#">Beranda</a>
+            </li>
+            <li>
+              <i class="fas fa-user-friends"></i>
+              <a href="#">Data Pasien dan Permintaan</a>
+            </li>
+            <li>
+              <i class="fas fa-vial"></i>
+              <a href="#">Manajemen Sampel</a>
+            </li>
+            <li>
+              <i class="fas fa-microscope"></i>
+              <a href="#">Pemeriksaan dan Hasil</a>
+            </li>
+            <li>
+              <i class="fas fa-clipboard-list"></i>
+              <a href="#">Pelaporan</a>
+            </li>
+            <li>
+              <i class="fas fa-toolbox"></i>
+              <a href="#">Alat dan Reagen</a>
+            </li>
+            <li>
+              <i class="fas fa-history"></i>
+              <a href="#">Riwayat Pasien</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+          <a href="#"><i class="fas fa-question-circle"></i> Bantuan</a>
+        </div>
+      </div>
+
+      <main class="content-area">
+        <header class="header">
+          <div style="display: flex">
+            <button class="hamburger" onclick="openSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="logo2">
+              <img src="logo2.png" alt="" />
+            </div>
+          </div>
+
+          <div class="profile-info">
+            <div class="icon-profil">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                <path
+                  d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"
+                />
+              </svg>
+            </div>
+            <div class="user-details">
+              <p class="username">Adi Nugraha</p>
+            </div>
+          </div>
+        </header>
+        <div onclick="closeSidebar()">
+          <div class="top-bar">
+            <h1 class="page-title">Data Pasien</h1>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2>Input Data Pasien</h2>
+            </div>
+            <div class="card-body">
+              <form id="patient-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="noRekamMedis">No. Rekam Medis</label>
+                    <input
+                      type="text"
+                      id="noRekamMedis"
+                      name="noRekamMedis"
+                      value="000215"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="noTelp">No. Telp</label>
+                    <input
+                      type="text"
+                      id="noTelp"
+                      name="noTelp"
+                      placeholder="Contoh: 0812300010834"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="namaPasien">Nama Pasien</label>
+                    <input
+                      type="text"
+                      id="namaPasien"
+                      name="namaPasien"
+                      placeholder="Masukkan nama lengkap pasien"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="agama">Agama</label>
+                    <select id="agama" name="agama">
+                      <option value="">Pilih Agama</option>
+                      <option value="islam">Islam</option>
+                      <option value="kristen">Kristen</option>
+                      <option value="katolik">Katolik</option>
+                      <option value="hindu">Hindu</option>
+                      <option value="budha">Budha</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="jenisKelamin">Jenis Kelamin</label>
+                    <select id="jenisKelamin" name="jenisKelamin">
+                      <option value="">Pilih Jenis Kelamin</option>
+                      <option value="laki-laki">Laki-laki</option>
+                      <option value="perempuan">Perempuan</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="pekerjaan">Pekerjaan</label>
+                    <select id="pekerjaan" name="pekerjaan">
+                      <option value="">Pilih Pekerjaan</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="tempatLahir">Tempat Lahir</label>
+                    <input
+                      type="text"
+                      id="tempatLahir"
+                      name="tempatLahir"
+                      placeholder="Masukkan dengan tempat lahir pasien"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status">
+                      <option value="">Pilih Status</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="tanggalLahir">Tanggal Lahir</label>
+                    <input type="date" id="tanggalLahir" name="tanggalLahir" />
+                  </div>
+                  <div class="form-group">
+                    <label for="namaAyah">Nama Ayah/Ibu</label>
+                    <input type="text" id="namaAyah" name="namaAyah" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="umur">Umur</label>
+                    <input type="text" id="umur" name="umur" />
+                  </div>
+                  <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input
+                      type="text"
+                      id="alamat"
+                      name="alamat"
+                      placeholder="Masukkan dengan alamat pasien"
+                    />
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-save">Simpan</button>
+                  <button type="button" class="btn btn-clear">
+                    Clear Form
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const clearFormButton = document.querySelector(".btn-clear");
+        const patientForm = document.getElementById("patient-form");
+        const tanggalLahirInput = document.getElementById("tanggalLahir");
+        const umurInput = document.getElementById("umur");
+        const pendidikanSelect = document.getElementById("pendidikan");
+        const pekerjaanSelect = document.getElementById("pekerjaan");
+        const statusSelect = document.getElementById("status");
+
+        // Data dummy untuk dropdown
+        const pendidikanOptions = [
+          "SD",
+          "SMP",
+          "SMA",
+          "Diploma",
+          "Sarjana",
+          "Pascasarjana",
+        ];
+        const pekerjaanOptions = [
+          "PNS",
+          "Swasta",
+          "Wiraswasta",
+          "Pelajar",
+          "Ibu Rumah Tangga",
+          "Lainnya",
+        ];
+        const statusOptions = ["Menikah", "Belum Menikah", "Janda", "Duda"];
+
+        // Fungsi untuk mengisi dropdown
+        function populateSelect(selectElement, options) {
+          options.forEach((optionText) => {
+            const option = document.createElement("option");
+            option.value = optionText.toLowerCase().replace(/\s/g, "");
+            option.textContent = optionText;
+            selectElement.appendChild(option);
+          });
+        }
+
+        // Mengisi dropdown dengan data dummy
+        populateSelect(pendidikanSelect, pendidikanOptions);
+        populateSelect(pekerjaanSelect, pekerjaanOptions);
+        populateSelect(statusSelect, statusOptions);
+
+        // Menghitung umur otomatis dari tanggal lahir
+        tanggalLahirInput.addEventListener("change", (e) => {
+          const birthDate = new Date(e.target.value);
+          if (!isNaN(birthDate)) {
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+              age--;
+            }
+            umurInput.value = age;
+          } else {
+            umurInput.value = "";
+          }
+        });
+
+        // Event listener untuk tombol "Clear Form"
+        clearFormButton.addEventListener("click", () => {
+          patientForm.reset();
+          umurInput.value = "";
+        });
+
+        // Event listener untuk form submission (Simpan)
+        patientForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const formData = new FormData(patientForm);
+          const data = Object.fromEntries(formData.entries());
+          console.log("Data yang akan dikirim:", data);
+          alert("Data berhasil disimpan! (Ini hanya simulasi)");
+        });
+      });
+
+      const sidebar = document.getElementById("sidebar");
+
+      let isSideOpen = false;
+      function openSidebar() {
+        isSideOpen = true;
+        sidebar.style.left = 0 + "px";
+        console.log("tes");
+      }
+
+      function closeSidebar() {
+        if (isSideOpen) sidebar.style.left = -300 + "px";
+      }
+    </script>
+  </body>
+</html>

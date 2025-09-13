@@ -1,0 +1,153 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.page-header p {
+  font-size: 1.1em;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.main-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.section-card {
+  background-color: #f9fbfd;
+  border-radius: 10px;
+  padding: 25px;
+  flex: 1;
+  min-width: 350px;
+  box-sizing: border-box;
+  border: 1px solid #e1e4e8;
+}
+
+.section-card h2 {
+  font-size: 1.5em;
+  color: #34495e;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #bdc3c7;
+}
+
+.status-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+}
+
+.status-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.status-icon.pending {
+  background-color: #f39c12;
+}
+.status-icon.in-progress {
+  background-color: #3498db;
+}
+.status-icon.completed {
+  background-color: #27ae60;
+}
+
+.status-text {
+  font-size: 1em;
+  color: #555;
+}
+
+.alert-box {
+  background-color: #fef0ef;
+  color: #c0392b;
+  border: 1px solid #e74c3c;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alert-box .icon-alert {
+  font-size: 1.5em;
+}
+
+.alert-box button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.fitur-card {
+  background-color: #f9fdf9;
+}
+
+.fitur-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fitur-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 1.1em;
+}
+
+.fitur-list li:last-child {
+  border-bottom: none;
+}
+
+.icon-fitur {
+  font-size: 1.5em;
+  color: #2980b9;
+  width: 30px;
+  text-align: center;
+}

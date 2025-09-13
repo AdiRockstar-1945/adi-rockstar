@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemeriksaan dan Hasil</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <h1>Pemeriksaan & Hasil</h1>
+        <p>Dashboard Monitoring Otomatis dan Verifikasi</p>
+      </header>
+
+      <div class="main-content">
+        <section class="section-card status-card">
+          <h2>Status Pemeriksaan</h2>
+          <div class="status-items">
+            <div class="status-item">
+              <span class="status-icon pending"></span>
+              <span class="status-text">Menunggu: <strong>12</strong></span>
+            </div>
+            <div class="status-item">
+              <span class="status-icon in-progress"></span>
+              <span class="status-text">Diproses: <strong>5</strong></span>
+            </div>
+            <div class="status-item">
+              <span class="status-icon completed"></span>
+              <span class="status-text">Selesai: <strong>89</strong></span>
+            </div>
+          </div>
+          <div class="alert-box abnormal">
+            <i class="icon-alert">⚠</i>
+            <span>Alert: 3 Hasil Abnormal</span>
+            <button>Lihat Detail</button>
+          </div>
+        </section>
+
+        <section class="section-card fitur-card">
+          <h2>Fitur</h2>
+          <ul class="fitur-list">
+            <li>
+              <i class="icon-fitur">📋</i>
+              <span>Daftar Permintaan Pemeriksaan</span>
+            </li>
+            <li>
+              <i class="icon-fitur">📊</i>
+              <span>Input Hasil Otomatis dari Alat</span>
+            </li>
+            <li>
+              <i class="icon-fitur">⚖</i>
+              <span>Nilai Rujukan & Interpretasi Hasil</span>
+            </li>
+            <li>
+              <i class="icon-fitur">✅</i>
+              <span>Kolom Verifikasi oleh Analis</span>
+            </li>
+            <li>
+              <i class="icon-fitur">🔒</i>
+              <span>Kolom Validasi Supervisor/Kepala Lab</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
