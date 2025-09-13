@@ -203,7 +203,6 @@ body {
 .stats-grid {
   display: flex;
   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 30px;
 }
 
@@ -214,8 +213,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
-  /* min-width: 50px; */
 }
 
 .stat-title {
@@ -234,8 +231,6 @@ body {
   background-color: #373e46;
   padding: 20px;
   border-radius: 10px;
-  flex: 2;
-  /* min-width: 100px; */
   text-align: center;
   position: relative;
 }
